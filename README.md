@@ -1,17 +1,17 @@
-# Unity Banana Navigation
+# Unity _Reacher_ Environment
 
-This is an implementaiton of Udacity Deep Reinforcement Learning Nanodegree's first project. In this project, the agent's goal is to navigate through blue bananas in a square world to collect the yellow ones. 
+This is an implementaiton of Udacity Deep Reinforcement Learning Nanodegree's second project. In this project, the agent's goal is to maintain the position of a double-jointed arm at the target location for as many time steps as possible.. 
 
 ![](images/trained_gif.gif)
 
 ## Environment Details
-This is an episodic RL problem and the task is considered `solved` when the agent gets an _average score_ of at least 13 over 100 consecutive episodes.
+This is a continuous episodic RL problem and the task is considered `solved` when the agent gets an _average score_ of at least 30 over 100 consecutive episodes.
 
 | Space        | Type | Dim          | Description  |
 | ------------- |:------:|:-------:| :-----|
-| Observation      | Continuous | [37,] | Contains the agent's velocity, along with ray-based perception<br> of objects around agent's forward direction |
-| Action      | Discrete | [4,]     |  0. Forward<br>  1. Backward<br> 2. Left<br> 3. Right  |
-| Reward      | Discrete | [1,]     |  Yellow Banana -> +1 <br> Blue Banana -> -1 |
+| Observation      | Continuous | [33,] | Contains the agent's velocity, along with ray-based perception<br> of objects around agent's forward direction |
+| Action      | Continuous | [4,] ∈ [-1, +1]    |   Contains torque applicable to two joints  |
+| Reward      | Discrete | [1,]     |   +0.1 for each step that the agent's hand is in the goal location |
 
 
 ## Getting Started
@@ -35,12 +35,12 @@ foo@bar:~$ pip install . -e
 foo@bar:~$ python main.py -h
 usage: main.py [-h] [--train]
 
-Banana Navigation Agent
+Unity Reacher Agent
 
 optional arguments:
   -h, --help      show this help message and exit
-  --train         Train the DQN agent if used, else load the trained weights
+  --train         Train the DDPG agent if used, else load the trained weights
                   and play the game
   --weights PATH  path of .pth file with the trained weights
 ```
-For further details run `Navigation.ipynb`.
+For further details run `Reacher.ipynb`.
