@@ -1,0 +1,12 @@
+exp_replay:
+    buffer: 100000 # replay buffer size
+    batch: 256 # minibatch size
+ddpg:
+    gamma: 0.99 # discount factor
+    tau: 1e-3 # for soft update of target parameters
+    lr_acotor: 1e-4 # learning rate
+    lr_critic: 3e-4
+    weight_decay: 0.0
+train:
+    n_episodes: 2000
+    max_t: 1000
