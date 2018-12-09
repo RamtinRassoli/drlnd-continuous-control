@@ -41,6 +41,7 @@ optional arguments:
   -h, --help      show this help message and exit
   --train         Train the DDPG agent if used, else load the trained weights
                   and play the game
-  --weights PATH  path of .pth file with the trained weights
+  --actor_weights PATH  path of .pth file with the trained actor weights
+  --critic_weights PATH  path of .pth file with the trained critic weights
 ```
 For further details run `Reacher.ipynb`.
