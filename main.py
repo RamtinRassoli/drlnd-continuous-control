@@ -119,9 +119,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Reacher Agent')
     parser.add_argument('--train', action="store_true", default=False,
                         help='Train the DDPG agent if used, else load the trained weights and play the game')
-    parser.add_argument('--weights', action="store", dest="path", type=str,
-                        help='path of .pth file with the trained weights')
+    parser.add_argument('--actor-weights', action="store", dest="actor_path", type=str,
+                        help='path of .pth file with the trained actor weights')
+    parser.add_argument('--critic-weights', action="store", dest="critic_path", type=str,
+                        help='path of .pth file with the trained critic weights')
     args = parser.parse_args()
     print("Train_mode: {}".format(args.train))
-
-    main("model/config.yaml", train_mode=args.train, weights_path=args.path)
+    paths = [args.actor_path, args.critic_path]
+    main("model/config.yaml", train_mode=args.train, weights_path=paths)
