@@ -130,11 +130,6 @@ Environment solved in 935 episodes!     Average Score: 13.05
 ## Ideas for Improvements
 
 - Using one network for Actor-Critic
-- [Rainbow](https://arxiv.org/pdf/1710.02298.pdf)
-    - Double DQN (DDQN)
-    - [Prioritized experience replay](https://arxiv.org/abs/1511.05952)
-    - [Dueling DQN](https://arxiv.org/abs/1511.06581)
-    - [Learning from multi-step bootstrap targets](https://arxiv.org/abs/1602.01783)
-    - [Noisy DQN](https://arxiv.org/abs/1706.10295)
-    - [Distributional DQN](https://arxiv.org/abs/1707.06887)
+- A3C
+- D4PG
     
