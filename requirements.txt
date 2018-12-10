@@ -1,0 +1,8 @@
+ruamel.yaml==0.15.74
+setuptools==40.4.3
+matplotlib==2.0.2
+more-itertools==4.3.0
+numpy==1.15.0
+scipy==0.19.1
+torch==0.4.1
+unityagents==0.4.0
