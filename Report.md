@@ -42,7 +42,7 @@ The input the to the actor network is the state and the output is the action (so
         </tr>
         <tr>
             <td >Output (µ(s|θ µ)) </td>
-            <td >Linear with Tanh/td>
+            <td >Linear with Tanh</td>
             <td>(4,)</td>
         </tr>
     </tbody>
@@ -80,7 +80,7 @@ The input the to the actor network is the state and the output is the action (so
         </tr>
         <tr>
             <td > Output (Q(s, a)) </td>
-            <td >Linear/td>
+            <td >Linear</td>
             <td>(1,)</td>
         </tr>
     </tbody>
