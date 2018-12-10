@@ -40,7 +40,7 @@ def ddpg(env, brain_name, agent, config, train_mode=True, weights_path=None):
     scores_window = deque(maxlen=100)  # last 100 scores
     score_threshold = 30.0
 
-    if weights_path:
+    if weights_path[0]:
         weights_actor = torch.load(weights_path[0])
         weights_critic = torch.load(weights_path[1])
         agent.actor_local.load_state_dict(weights_actor)
