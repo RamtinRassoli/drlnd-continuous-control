@@ -70,7 +70,7 @@ The input the to the actor network is the state and the output is the action (so
         </tr>
         <tr>
             <td >Concat</td>
-            <td >Operation</td>
+            <td >Concatenation</td>
             <td>(400+action_size,)</td>
         </tr>
         <tr>
