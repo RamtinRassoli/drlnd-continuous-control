@@ -26,7 +26,7 @@ The input the to the actor network is the state and the output is the action (so
     </thead>
     <tbody>
         <tr>
-            <td >Input</td>
+            <td >State</td>
             <td >Input</td>
             <td>(33,)</td>
         </tr>
@@ -65,6 +65,11 @@ The input the to the actor network is the state and the output is the action (so
     <tbody>
         <tr>
             <td >State</td>
+            <td >Input</td>
+            <td>(33,)</td>
+        </tr>
+        <tr>
+            <td >Hidden 1</td>
             <td >Linear with Relu</td>
             <td>(400,)</td>
         </tr>
@@ -105,7 +110,7 @@ ddpg:
     gamma: 0.99 # discount factor
     tau: 1e-3 # for soft update of target parameters
     lr_acotor: 1e-4 # learning rate
-    lr_critic: 3e-4
+    lr_critic: 1e-4
     weight_decay: 0.0
 train:
     n_episodes: 2000
@@ -113,19 +118,18 @@ train:
 ```
 
 ## Results
-![](images/2000.png)
+![](images/results.png)
 ```
-Episode 100     Average Score: 0.42
-Episode 200     Average Score: 2.34
-Episode 300     Average Score: 5.01
-Episode 400     Average Score: 6.67
-Episode 500     Average Score: 8.38
-Episode 600     Average Score: 9.96
-Episode 700     Average Score: 11.15
-Episode 800     Average Score: 11.54
-Episode 900     Average Score: 11.13
-Episode 1000    Average Score: 12.67
-Environment solved in 935 episodes!     Average Score: 13.05
+Episode 185     Average Score: 27.94
+Episode 186     Average Score: 28.17
+Episode 187     Average Score: 28.47
+Episode 188     Average Score: 28.77
+Episode 189     Average Score: 29.07
+Episode 190     Average Score: 29.34
+Episode 191     Average Score: 29.56
+Episode 192     Average Score: 29.83
+Episode 193     Average Score: 30.07
+Environment solved in 93 episodes!      Average Score: 30.07
 ```
 ## Ideas for Improvements
 
