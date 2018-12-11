@@ -84,20 +84,20 @@ def ddpg(env, brain_name, agent, config, train_mode=True, weights_path=None):
                 torch.save(agent.actor_local.state_dict(), 'checkpoint_actor_solved_{}.pth'.format(i_episode))
                 torch.save(agent.critic_local.state_dict(), 'checkpoint_critic_solved_{}.pth'.format(i_episode))
                 score_threshold += 1
-            if i_episode % 500 == 0:
-                plot_scores(scores)
+            if i_episode % 200 == 0:
+                plot_scores(scores, i_episode)
 
     plot_scores(scores)
     return scores
 
 
-def plot_scores(scores):
+def plot_scores(scores, i_episode):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     plt.plot(np.arange(len(scores)), scores)
     plt.ylabel('Score')
     plt.xlabel('Episode #')
-    plt.show()
+    plt.savefig('Score_{}.png'.format(i_episode))
 
 
 def main(config_path, train_mode=True, weights_path=None):
