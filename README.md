@@ -2,7 +2,7 @@
 
 This is an implementaiton of Udacity Deep Reinforcement Learning Nanodegree's second project. In this project, the agent's goal is to maintain the position of a double-jointed arm at the target location for as many time steps as possible.. 
 
-![](images/trained_gif.gif)
+![](images/trained.gif)
 
 ## Environment Details
 This is a continuous episodic RL problem and the task is considered `solved` when the agent gets an _average score_ of at least 30 over 100 consecutive episodes.
