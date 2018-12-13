@@ -40,9 +40,9 @@ def ddpg(env, brain_name, agent, config, train_mode=True, weights_path=None):
     scores_window = deque(maxlen=100)  # last 100 scores
     score_threshold = 30.0
 
-    if weights_path[0]:
-        weights_actor = torch.load(weights_path[0])
-        weights_critic = torch.load(weights_path[1])
+    if weights_path is not None and weights_path[0]:
+        weights_actor = torch.load(weights_path[0], map_location={'cuda:0': 'cpu'})
+        weights_critic = torch.load(weights_path[1], map_location={'cuda:0': 'cpu'})
         agent.actor_local.load_state_dict(weights_actor)
         agent.critic_local.load_state_dict(weights_critic)
         agent.actor_target.load_state_dict(weights_actor)
@@ -71,23 +71,25 @@ def ddpg(env, brain_name, agent, config, train_mode=True, weights_path=None):
         scores_window.append(score)  # save most recent score
         scores.append(score)  # save most recent score
 
-        print('\nEpisode {}\tAverage Score: {:.2f}'.format(i_episode, np.mean(scores_window)))
+        # print('\nEpisode {}\tAverage Score: {:.2f}'.format(i_episode, np.mean(scores_window)))
         if train_mode:
-            if i_episode % 100 == 0:
+            if i_episode % 10 == 0:
                 print('Episode {}\tAverage Score: {:.2f}'.format(i_episode, np.mean(scores_window)))
-                torch.save(agent.actor_local.state_dict(), 'checkpoint_actor_{}.pth'.format(i_episode))
-                torch.save(agent.critic_local.state_dict(), 'checkpoint_critic_{}.pth'.format(i_episode))
+                # torch.save(agent.actor_local.state_dict(), 'checkpoint_actor_{}.pth'.format(i_episode))
+                # torch.save(agent.critic_local.state_dict(), 'checkpoint_critic_{}.pth'.format(i_episode))
 
             if np.mean(scores_window) >= score_threshold:
                 print('Environment solved in {:d} episodes!\tAverage Score: {:.2f}'.format(i_episode - 100,
                                                                                            np.mean(scores_window)))
-                torch.save(agent.actor_local.state_dict(), 'checkpoint_actor_solved_{}.pth'.format(i_episode))
-                torch.save(agent.critic_local.state_dict(), 'checkpoint_critic_solved_{}.pth'.format(i_episode))
+                # torch.save(agent.actor_local.state_dict(), 'checkpoint_actor_solved_{}.pth'.format(i_episode))
+                # torch.save(agent.critic_local.state_dict(), 'checkpoint_critic_solved_{}.pth'.format(i_episode))
                 score_threshold += 1
+                break
+
             if i_episode % 200 == 0:
                 plot_scores(scores, i_episode)
 
-    plot_scores(scores)
+    plot_scores(scores, i_episode)
     return scores
 
 
