@@ -8,7 +8,7 @@ In this implementation we use two separate networks for the actor and critic.
 
 
 ### Actor-Critic Network Architecture
-The input the to the actor network is the state and the output is the action (so actor function µ(s|θ<sup>µ</sup>) specifies the current policy by _deterministically_ mapping states to a specific action). The critic Q(s, a) simply uses the Bellman equation as in Q-learning to learn the value of each state-action pair.
+The input to the actor network is the state and the output is the action (so actor function µ(s|θ<sup>µ</sup>) specifies the current policy by _deterministically_ mapping states to a specific action). The critic Q(s, a) simply uses the Bellman equation as in Q-learning to learn the value of each state-action pair.
 
 
 <table>
